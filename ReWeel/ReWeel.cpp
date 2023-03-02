@@ -82,12 +82,17 @@ int main()
     cout << "j0 ^ j1 = " << (j0 ^ j1) << endl;
     cout << "!j0 = " << (!j0) << endl;
     cout << "~j0 = " << (~j0) << endl;
-    cout << "number1(decimal) = " << dec << number1 << endl;
-    cout << "number1(binary) = " << bitset<8>(number1) << endl;
+
+
+    cout << "number1 (decimal) = " << dec << number1 << endl;
+    cout << "number1 (binary) = " << bitset<8>(number1) << endl;
     int number1a = (number1 << 1);
     int number1b = (number1 >> 1);
-    cout << "number1 left = " << number1a << endl;
-    cout << "number1left = " << bitset<8>(number1a) << endl;
+    cout << "number1 shift left  = " << number1a << endl;
+    cout << "number1 shift left  = " << bitset<8>(number1a) << endl;
+    cout << "number1 shift right = " << number1b << endl;
+    cout << "number1 shift right = " << bitset<8>(number1b) << endl;
+    cout << "number1 (decimal) = " << dec << number1 << endl;
 
     return 0;
 }
