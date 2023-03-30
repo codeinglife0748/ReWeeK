@@ -14,7 +14,7 @@ int main()
     double d;
 
     int& i_ref = i;
-    int& d_ref = d;
+    //int& d_ref = d;
 
     cout << "value of i = " << i << endl;
     cout << "value of i reference = " << i_ref << endl;
