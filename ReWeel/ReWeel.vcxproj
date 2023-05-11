@@ -128,10 +128,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="inherit.cpp" />
+    <ClCompile Include="PrivateDerivedClass.cpp" />
+    <ClCompile Include="ProtectedDerivedClass.cpp" />
+    <ClCompile Include="PublicDerivedClass.cpp" />
     <ClCompile Include="ReWeel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inherit.h" />
+    <ClInclude Include="PrivateDerivedClass.h" />
+    <ClInclude Include="ProtectedDerivedClass.h" />
+    <ClInclude Include="PublicDerivedClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
