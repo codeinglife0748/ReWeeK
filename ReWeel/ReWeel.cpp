@@ -9,6 +9,7 @@
 #include<iomanip>
 #include"DrinkItem.h"
 #include"OrderItem.h"
+#include"ReWeelDrink.h"
 using namespace std;
 
 void AddNewDrink(std::vector<DrinkItem>& drinks)
@@ -30,7 +31,7 @@ void DisplayDrinkMenu(vector<DrinkItem>& drinks)
     int i = 1;
     for (DrinkItem item : drinks) {
         cout << setw(6) << i;
-        item.DisplayItem();
+        item.displayItem();
     }
 
 
@@ -46,9 +47,79 @@ void DisplayDrinkMenu(vector<DrinkItem>& drinks)
     cout << "----------------------------------" << endl;
 
 }
-void OrderDrink(vector<OrderItem>& order)
+void OrderDrink(vector<OrderItem>& order, vector<DrinkItem>& drinks)
 {
+    int index;
+    int qty;
+    char ans = 'Y';
 
+    do {
+        cout << "Please order the drink number : ";
+        cin >> index;
+        cout << "please input how much drinks you want : ";
+        cin >> qty;
+        if (index < 1 || index > drinks.size()) {
+            cout << "Drink serial error,Please resend again : " << endl;
+        }
+        else if(qty <1)
+        {
+            cout << "Drink number errorr, Please resend again : " << endl;
+        }
+        else
+        {
+            OrderItem orderitem(index, qty);
+            order.push_back(orderitem);
+            orderitem.displayOrderItem(drinks);
+            cout << "Keeping Order?(Press 'Y' keep order) ";
+            cin >> ans;
+        }
+    } while (ans == 'Y' || ans == 'y');
+
+}
+void CalculateSalePrice(vector<OrderItem>& order, vector<DrinkItem>& drinks)
+{
+    int takeIn = 1;
+    cout << "In use or take out(1:in use 2:take out)";
+    cin >> takeIn;
+    string messageTakeIn = (takeIn == 1) ? "In use" : "Take out";
+
+    int totalPrice = 0;
+    int salePrice = 0;
+    string messagePrice = "";
+    cout << "----------------------------------------" << endl;
+    cout << "This your order check list : " << endl;
+    cout << "----------------------------------------" << endl;
+    for (OrderItem orderitem : order) {
+        orderitem.displayOrderItem(drinks);
+        DrinkItem drinkitem = drinks[orderitem.getIndex() - 1];
+        totalPrice += drinkitem.getPrice() * orderitem.getQuantity();
+    }
+    if (totalPrice >= 500)
+    {
+        salePrice = totalPrice * 0.8;
+        messagePrice = "order amount over 500NTD has 20%off";
+    }
+    else if (totalPrice >= 300)
+    {
+        salePrice = totalPrice * 0.9;
+        messagePrice = "order amount over 300NTD has 10%off";
+    }
+    else if (totalPrice >= 200)
+    {
+        salePrice = totalPrice * 0.95;
+        messagePrice = "order amount over 200NTD has 5%off";
+    }
+    else
+    {
+        salePrice = totalPrice;
+        messagePrice = "order amount not over 200 no sale";
+    }
+    cout <<"-----------------------------------------" << endl;
+    cout << "ordering method : " << messageTakeIn << endl;
+    cout << "total Price : " << totalPrice << endl;
+    cout << messagePrice << endl;
+    cout << "Price : " << salePrice << endl;
+    cout << "-----------------------------------------" << endl;
 }
 
 int main()
@@ -61,6 +132,7 @@ int main()
 
     AddNewDrink(drinks);
     DisplayDrinkMenu(drinks);
-    OrderDrink(order);
+    OrderDrink(order, drinks);
+    CalculateSalePrice(order, drinks);
 }
 

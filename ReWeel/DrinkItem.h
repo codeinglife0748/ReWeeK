@@ -10,7 +10,10 @@ private:
 	int drinkPrice;
 public:
 	DrinkItem(const string&, const string&, int);
-	void DisplayItem();
+	void displayItem();
+	string getName();
+	string getSize();
+	int getPrice();
 };
 
 

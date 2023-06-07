@@ -10,9 +10,8 @@
 #include"OrderItem.h"
 
 
-void AddNewDrink(std::vector<DrinkItem>& drinks);
-inline void DisplayDrinkMenu(vector<DrinkItem>&);
-
+void AddNewDrink(std::vector<DrinkItem>&);
+void DisplayDrinkMenu(vector<DrinkItem>&);
 void OrderDrink(vector<OrderItem>&, vector<DrinkItem>&);
 void CalculateSalePrice(vector<OrderItem>&);
 
