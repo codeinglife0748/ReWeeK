@@ -5,6 +5,8 @@
 #include<string.h>
 #include<string>
 #include<vector>
+#include<fstream>
+#include<sstream>
 //#include<array>
 #include"DrinkItem.h"
 #include"OrderItem.h"
@@ -14,7 +16,9 @@ void AddNewDrink(std::vector<DrinkItem>&);
 void DisplayDrinkMenu(vector<DrinkItem>&);
 void OrderDrink(vector<OrderItem>&, vector<DrinkItem>&);
 void CalculateSalePrice(vector<OrderItem>&);
-
+void PrintOrder(vector<OrderItem>&, vector<DrinkItem>, string, string, int, int);
+string ReadFile(const string&);
+vector<string> Split(const string&, char);
 
 
 /*

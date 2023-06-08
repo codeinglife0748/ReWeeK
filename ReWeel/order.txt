@@ -1,0 +1,12 @@
+-----------------------------------------
+This your order check list : 
+-----------------------------------------
+You order drinks is : Coffee M 2 cops¡Aones 40NTD, Total 80NTD
+You order drinks is : Black tea L 8 cops¡Aones 55NTD, Total 440NTD
+You order drinks is : Green tea L 4 cops¡Aones 20NTD, Total 80NTD
+-----------------------------------------
+ordering method : In use
+total Price : 600
+order amount over 500NTD has 20%off
+Price : 480
+-----------------------------------------
